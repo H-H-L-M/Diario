@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário</title>
+    <link rel="stylesheet" href="src/estilo.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="left">
+      <h1>Diário</h1>
+
+      <label>Título</label>
+      <input id="titulo" placeholder="Um dia tranquilo" />
+
+      <label>Humor</label>
+      <select id="humor">
+        <option value="Feliz">Feliz</option>
+        <option value="Triste">Triste</option>
+        <option value="Neutro">Neutro</option>
+      </select>
+
+      <label>Texto</label>
+      <textarea id="texto">Como foi o dia de hoje?</textarea>
+
+      <div class="row">
+        <button onclick="salvarEntrada()">Salvar</button>
+        <button onclick="editarEntrada()">Editar</button>
+        <button onclick="excluirEntrada()">Excluir</button>
+      </div>
+
+      <div class="row">
+        <button onclick="exportarEntradas()">Exportar</button>
+        <button onclick="importarEntradas()">Importar</button>
+      </div>
+    </div>
+
+    <div class="right">
+      <input id="pesquisa" placeholder="Pesquisar" oninput="renderizarEntradas()" />
+
+      <div class="top-controls">
+        <div class="control">
+          <label>Filtrar por humor</label>
+          <select id="filtroHumor" onchange="renderizarEntradas()">
+            <option value="Todos">Todos</option>
+            <option value="Feliz">Feliz</option>
+            <option value="Triste">Triste</option>
+            <option value="Neutro">Neutro</option>
+          </select>
+        </div>
+              <label>Data</label>
+        <input type="date" id="data">
+
+        <div class="control">
+          <label>Ordenar por</label>
+          <select id="ordem" onchange="renderizarEntradas()">
+            <option value="Data">Data</option>
+            <option value="Titulo">Título</option>
+          </select>
+        </div>
+      </div>
+      <div class="preview" id="preview">
+        <h3>Pré-visualização</h3>
+      </div>
+    </div>
+  </div>
+  <script src="src/script.js"></script>
+</body>
+</html>
